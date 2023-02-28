@@ -16,18 +16,24 @@ from random import randint
 count_tree = int(input('Введите количество кустов на грядке: '))
 row = [randint(10, 30) for _ in range(count_tree)]
 print(row)
+list_count = []
 
-max = row[len(row) - 2] + row[len(row) - 1] + row[0]
-list_tree = [len(row) - 2, len(row) - 1, 0]
-if row[len(row) - 2] + row[len(row) - 1] + row[0] < row[len(row) - 1] + row[0] + row[1]:
-    max = row[len(row) - 1] + row[0] + row[1]
-    list_tree = [len(row) - 1, 0, 1]
-print(row[len(row) - 2] + row[len(row) - 1] + row[0], row[len(row) - 1] + row[0] + row[1])
+# max = row[len(row) - 2] + row[len(row) - 1] + row[0]
+# list_tree = [len(row) - 2, len(row) - 1, 0]
+# if row[len(row) - 2] + row[len(row) - 1] + row[0] < row[len(row) - 1] + row[0] + row[1]:
+#     max = row[len(row) - 1] + row[0] + row[1]
+#     list_tree = [len(row) - 1, 0, 1]
+# print(row[len(row) - 2] + row[len(row) - 1] + row[0], row[len(row) - 1] + row[0] + row[1])
 
-for i in range(len(row) - 2):
-    if row[i] + row[i + 1] + row[i + 2] > max:
-        max = row[i] + row[i + 1] + row[i + 2]
-        list_tree = [i, i + 1, i + 2]
-    print(i, row[i] + row[i + 1] + row[i + 2])
+# for i in range(len(row) - 2):
+#     if row[i] + row[i + 1] + row[i + 2] > max:
+#         max = row[i] + row[i + 1] + row[i + 2]
+#         list_tree = [i, i + 1, i + 2]
+#     print(i, row[i] + row[i + 1] + row[i + 2])
 
-print(f'Максимальное количество ягод за один заход: {max} с кустов под номерами {list_tree}.')
+for i in range(len(row)):
+    list_count.append(row[i - 2] + row[i - 1] + row[i])
+    list_tree = [i - 2, i - 1, i]
+    print(i, row[i - 2] + row[i - 1] + row[i])
+print(list_count)
+print(f'Максимальное количество ягод за один заход: {max(list_count)}.')
