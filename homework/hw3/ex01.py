@@ -6,7 +6,7 @@
 from random import randint
 
 long = randint(15, 25)
-my_list = [randint(1, 30) for _ in range(long)]
+my_list = [randint(1, 100) for _ in range(long)]
 print(my_list)
 
 number = int(input('Введите число: '))
