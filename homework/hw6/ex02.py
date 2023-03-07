@@ -13,7 +13,7 @@ print(my_list)
 
 list_index = []
 for i in range(len_list):
-    if min_range < my_list[i] < max_range:
+    if min_range <= my_list[i] <= max_range:
         list_index.append(i)
 
 print(list_index)
