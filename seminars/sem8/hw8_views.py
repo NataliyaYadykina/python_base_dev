@@ -18,19 +18,23 @@ def get_data_contact():
     data_contact = [first_name, last_name, phone_number, comment]
     return data_contact
 
-# Получение id изменяемого контакта
+# Получение информации для поиска контакта
+def get_search_text():
+    return input('Введите информацию для поиска: ')
+
+# Получение id контакта
 def get_id_user(contacts_db):
     while True:
-        id_user = input('Введите id изменяемого контакта: ')
+        id_user = input('Введите id контакта: ')
         if id_user in contacts_db.keys():
             return id_user
         else:
             print('Нет такого контакта. Укажите корректный id.')
 
-# Получение номера телефона для изменения
+# Получение номера телефона 
 def get_phone_number(contacts_db, id_user):
     while True:
-        phone_number = input('Введите номер телефона для изменения: ')
+        phone_number = input('Введите номер телефона: ')
         if phone_number in contacts_db.get(id_user)[2]:
             return phone_number
         else:
